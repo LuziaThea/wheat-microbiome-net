@@ -1,0 +1,374 @@
+---
+title: "Bacterial-fungal network calculation"
+output:
+  html_document:
+    theme: united
+    highlight: breezedark
+    toc: yes
+    toc_float: true
+    df_print: paged
+---
+
+# Outline
+
+- Calculate reference network with all taxa on an array of r (rank L), evaluate r that gives lowest ebic.
+
+- Subsample taxa (80% per kingdom), calculate network with previously defined r.
+
+- Calculate relative Hamming distance to reference network ( (False positive + False negative)/ true edges ).
+
+
+# Calculate reference network
+
+Calculate reference network with all taxa on an array of r (rank L).
+Determine r that gives lowest ebic.
+
+### Specify input
+
+```{r eval=FALSE}
+library(phyloseq)
+
+## specify input files
+physeq1 <- readRDS(paste(HOME_LOCAL, "physeq_LSP48_LSP49_genus_merged.rds", sep = "")) # Phyloseq object for 16S, merged on genus level
+physeq2 <- readRDS(paste(HOME_LOCAL, "physeq_LSP08_LSP10_genus_merged.rds", sep = "")) # Phyloseq object for ITS, merged on genus level
+name <- "LSP4849_genus_merged_LSP0810_genus_merged"
+level <- "Genus"
+```
+
+### Create meta data table
+
+Input files are ITS UNITE taxonomy annotation and 16S SILVA taxonomy annotation.
+
+```{r eval=FALSE}
+library(dplyr)
+
+## create meta data table
+
+# merge samples, i.e. aggregate replicates and runs
+physeq1_m <- merge_samples(x = physeq1, group = "Sample", fun = sum)
+physeq2_m <- merge_samples(x = physeq2, group = "Sample", fun = sum)
+
+
+# add ITS annotation
+metaITS <- data.frame(ID = 1:nrow(data.frame(tax_table(physeq2_m))), 
+                       Name = data.frame(tax_table(physeq2_m))[,1],
+                       Organism = "ITS")
+
+Annot_ITS <- read.table(paste(HOME_LOCAL,"02_LSP08_LSP10_sub_bed_unite_species_assignment_dynamic_29.11.2022.txt", 
+                             sep = "/"), header = TRUE, stringsAsFactors = F, sep = "\t", row.names = NULL)
+
+Annot_ITS <- Annot_ITS %>% select(3:which(names(Annot_ITS) == level)) %>% distinct()
+Annot_ITS <- Annot_ITS[!is.na(Annot_ITS[,level]),]
+
+metaITS <- left_join(metaITS, Annot_ITS, by=c("Name" = level))
+
+
+# add 16S annotation
+meta16S <- data.frame(ID = (nrow(data.frame(tax_table(physeq2_m))) + 1) : (nrow(data.frame(tax_table(physeq2_m))) + nrow(data.frame(tax_table(physeq1_m)))), 
+                       Name = data.frame(tax_table(physeq1_m))[,1],
+                       Organism = "16S")
+
+Annot_16S <- read.table(paste(HOME_LOCAL,"02_LSP48_LSP49_silva_species_assignment_v138.txt", sep = "/"), 
+                       header = TRUE, stringsAsFactors = F, sep = "\t", row.names = NULL)
+Annot_16S <- Annot_16S %>% select(4:which(names(Annot_16S) == level)) %>% distinct()
+Annot_16S <- Annot_16S[!is.na(Annot_16S[,level]),]
+
+meta16S <- left_join(meta16S, Annot_16S, by=c("Name" = level))
+
+# merge annotations
+meta <- rbind(metaITS, meta16S)
+write.table(meta, paste(HOME_LOCAL,"SPIEC-EASI_robustness/Meta_info_", name, ".txt", sep = ""), row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+```
+
+### Run network analysis
+
+```{r eval=FALSE}
+library(SpiecEasi)
+library(reshape2)
+
+set.seed(1)
+
+## calculate networks
+
+# initialize summary table for ebic and rank
+
+ranks <- c(1, 2,  3,  6, 10, 11, 18, 32, 40, 45, 48, 50, 55)
+
+ebic_table <- data.frame(matrix(nrow = length(ranks), ncol = 2))
+colnames(ebic_table) <- c("rank", "ebic")
+
+# loop through ranks
+for(i in 1:length(ranks)){
+  
+  r <- ranks[i]
+  
+  # calculate slr
+  phy.slr <- spiec.easi(list(physeq2_m, physeq1_m), method='slr', nlambda=50,
+           lambda.min.ratio=1e-2, r=r, lambda.log=TRUE,
+           pulsar.params=list(ncores=32, rep.num=30))
+  saveRDS(phy.slr, file = paste(HOME_LOCAL,"SPIEC-EASI_robustness/SLR_model_", name, "_rank", r, ".rds", sep = ""))
+  
+  # plot
+  dtype <- c(rep(1,ntaxa(physeq2_m)), rep(2,ntaxa(physeq1_m)))
+  pdf(file = paste(HOME_LOCAL,"SPIEC-EASI_robustness/SLR_model_", name, "_rank", r, ".pdf", sep = ""), width = 10, height = 10 )
+  plot(adj2igraph(getRefit(phy.slr)), vertex.color=dtype+1, vertex.size=9)
+  dev.off() 
+
+  # get ebic
+  eBic <- ebic(phy.slr$refit$stars, phy.slr$est$data, phy.slr$est$loglik[phy.slr$select$stars$opt.index])
+  
+  # save ranks a nd ebic in table
+  ebic_table[i,"rank"] <- r
+  ebic_table[i,"ebic"] <- eBic
+  
+  # obtain matrix with edge weights
+
+  se.icov <- phy.slr$select$est$icov[[getOptInd(phy.slr)]]
+  
+  tryCatch({
+  # Try to solve the matrix
+  se.cov <<- solve(se.icov)
+  # Continue with the rest of your code if solve is successful
+}, error = function(e) {
+  # if the matrix to solve is singular and does not have an inverse, add a small constant to thediagonal elements of the matrix. 
+  # This is known as regularization or ridge regression in the context of linear regression.
+   lambda <- 1e-6  # Small constant
+   se.icov.regularized <- se.icov + diag(lambda, nrow(se.icov))
+   se.cov <<- solve(se.icov.regularized)
+})
+
+  # format to long format
+  df_long <- melt(se.cov, varnames = c("Source", "Target"), value.name = "Weight")
+
+  df_long2 <- df_long %>%
+  mutate(temp = pmin(as.numeric(Source), as.numeric(Target)),
+         Target = pmax(as.numeric(Source), as.numeric(Target)),
+         Source = temp) %>% 
+  select(-temp) 
+
+  df_long3 <- df_long2 %>% filter(!duplicated(df_long2[c("Source", "Target")])) %>%
+  filter(Source != Target)
+  write.table(df_long3, paste(HOME_LOCAL,"SPIEC-EASI_robustness/Edge_weigths_", name, "_rank", r, "_all.txt", sep = ""), 
+              row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+
+  # annotate long format with meta data table
+  df_long3_a <- left_join(df_long3, meta[,c("ID", "Name")], by=c("Source" = "ID"))
+  df_long3_a <- left_join(df_long3_a, meta[,c("ID", "Name")], by=c("Target" = "ID"))
+  colnames(df_long3_a)[4:5] <- c("Source_name", "Target_name")
+  write.table(df_long3_a, paste(HOME_LOCAL,"SPIEC-EASI_robustness/Edge_weigths_", name, "_rank", r, "_all_annot.txt", sep = ""), 
+              row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+
+}
+
+# save ebic table
+write.table(ebic_table, file = paste(HOME_LOCAL, "SPIEC-EASI_robustness/SLR_model_", name, "_ebictable.txt", sep = ""), 
+            col.names = TRUE, row.names = FALSE, sep = "\t", quote = FALSE) 
+
+# rank for min ebic
+ebic_table[ebic_table$ebic==min(ebic_table$ebic),"rank" ]
+
+
+```
+
+
+
+
+# Robustness analysis
+
+Calculate network on taxa subset and calculate Hamming distance to ref network.
+
+Subsample taxa (80% per kingdom), calculate network with previously defined r.
+
+
+```{r eval=FALSE}
+library(phyloseq)
+library(SpiecEasi)
+library(dplyr)
+
+## specify input 
+
+# set genus
+physeq1 <- readRDS(paste(HOME_LOCAL, "physeq_LSP48_LSP49_genus_merged.rds", sep = "")) # input physeq1
+physeq2 <- readRDS(paste(HOME_LOCAL, "physeq_LSP08_LSP10_genus_merged.rds", sep = "")) # input physeq2
+name <- "LSP4849_genus_merged_LSP0810_genus_merged" # name
+level <- "Genus" # tax glom level
+r <- 1 # specify optimal rank
+ref_weights <- read.table(paste(HOME_LOCAL, "SPIEC-EASI_robustness/Edge_weigths_", name, "_rank", r, "_all_annot.txt" , sep = ""), 
+                        header = TRUE, stringsAsFactors = FALSE) # input reference edges
+n <- 50 # number of subnetworks to calculate
+
+
+
+## sample and calculate i subnetworks, calculate hamming distance to ref
+
+# initialize hamming output matrix
+hamming_table <- data.frame(matrix(nrow = n, ncol = 2))
+colnames(hamming_table) <- c("subnetwork_number", "hamming_dist")
+
+
+for(i in 1:n){
+  
+  set.seed(i)
+  
+  ## subsample taxa
+
+  # subsample physeq
+  taxa_to_keep <- sample(taxa_names(physeq1), size = round(ntaxa(physeq1) * 0.8))
+  physeq1_subset <- prune_taxa(taxa_to_keep, physeq1)
+  
+  taxa_to_keep <- sample(taxa_names(physeq2), size = round(ntaxa(physeq2) * 0.8))
+  physeq2_subset <- prune_taxa(taxa_to_keep, physeq2)
+  
+  # merge samples, i.e. aggregate replicates and runs
+  physeq1_m <- merge_samples(x = physeq1_subset, group = "Sample", fun = sum)
+  physeq2_m <- merge_samples(x = physeq2_subset, group = "Sample", fun = sum)
+
+  # check whether there are some samples missing in one or the other physeq
+  # subset for samples present in both physeq objects
+  sample_vec <- c(rownames(physeq1_m@sam_data), rownames(physeq2_m@sam_data))
+  nondup <- sample_vec[!duplicated(sample_vec) & !duplicated(sample_vec, fromLast = TRUE)]
+  
+  if (length(nondup) > 0) {
+     physeq1_m <- prune_samples( sample_names(physeq1_m) != nondup, physeq1_m)
+     physeq2_m <- prune_samples( sample_names(physeq2_m) != nondup, physeq2_m)
+  }
+  
+
+  ## calculate subnetwork with rank r
+  
+  # calculate slr
+  phy.slr <- spiec.easi(list(physeq2_m, physeq1_m), method='slr', nlambda=50,
+           lambda.min.ratio=1e-2, r=r, lambda.log=TRUE,
+           pulsar.params=list(ncores=32, rep.num=30))
+  saveRDS(phy.slr, file = paste(HOME_LOCAL,"SPIEC-EASI_robustness/SLR_model_", name, "_rank", r, "_subnetwork_", i, ".rds", sep = ""))
+  
+  # plot
+  dtype <- c(rep(1,ntaxa(physeq2_m)), rep(2,ntaxa(physeq1_m)))
+  pdf(file = paste(HOME_LOCAL,"SPIEC-EASI_robustness/SLR_model_", name, "_rank", r, "_subnetwork_", i, ".pdf", sep = ""), width = 10, height = 10 )
+  plot(adj2igraph(getRefit(phy.slr)), vertex.color=dtype+1, vertex.size=9)
+  dev.off() 
+
+  
+  ## get meta data table for subnetwork
+  
+  # ITS annotation
+  metaITS <- data.frame(ID = 1:nrow(data.frame(tax_table(physeq2_m))), 
+                       Name = data.frame(tax_table(physeq2_m))[,1],
+                       Organism = "ITS")
+  Annot_ITS <- read.table(paste(HOME_LOCAL,"02_LSP08_LSP10_sub_bed_unite_species_assignment_dynamic_29.11.2022.txt", 
+                             sep = "/"), header = TRUE, stringsAsFactors = F, sep = "\t", row.names = NULL)
+  Annot_ITS <- Annot_ITS %>% select(3:which(names(Annot_ITS) == level)) %>% distinct()
+  Annot_ITS <- Annot_ITS[!is.na(Annot_ITS[,level]),]
+  metaITS <- left_join(metaITS, Annot_ITS, by=c("Name" = level))
+
+  # 16S annotation
+  meta16S <- data.frame(ID = (nrow(data.frame(tax_table(physeq2_m))) + 1) : (nrow(data.frame(tax_table(physeq2_m))) + nrow(data.frame(tax_table(physeq1_m)))), 
+                       Name = data.frame(tax_table(physeq1_m))[,1],
+                       Organism = "16S")
+  Annot_16S <- read.table(paste(HOME_LOCAL,"02_LSP48_LSP49_silva_species_assignment_v138.txt", sep = "/"), 
+                       header = TRUE, stringsAsFactors = F, sep = "\t", row.names = NULL)
+  Annot_16S <- Annot_16S %>% select(4:which(names(Annot_16S) == level)) %>% distinct()
+  Annot_16S <- Annot_16S[!is.na(Annot_16S[,level]),]
+  meta16S <- left_join(meta16S, Annot_16S, by=c("Name" = level))
+
+  meta <- rbind(metaITS, meta16S)
+  
+  
+  ## obtain matrix with edge weights
+
+  se.icov <- phy.slr$select$est$icov[[getOptInd(phy.slr)]]
+  
+  tryCatch({
+  # Try to solve the matrix
+  se.cov <<- solve(se.icov)
+  # Continue with the rest of your code if solve is successful
+}, error = function(e) {
+  # if the matrix to solve is singular and does not have an inverse, add a small constant to thediagonal elements of the matrix. 
+  # This is known as regularization or ridge regression in the context of linear regression.
+   lambda <- 1e-6  # Small constant
+   se.icov.regularized <- se.icov + diag(lambda, nrow(se.icov))
+   se.cov <<- solve(se.icov.regularized)
+})
+
+  # format to long format
+  edges_long <- melt(se.cov, varnames = c("Source", "Target"), value.name = "Weight")
+
+  edges_long <- edges_long %>%
+  mutate(temp = pmin(as.numeric(Source), as.numeric(Target)),
+         Target = pmax(as.numeric(Source), as.numeric(Target)),
+         Source = temp) %>% 
+  select(-temp) 
+
+  edges_long <- edges_long %>% filter(!duplicated(edges_long[c("Source", "Target")])) %>%
+  filter(Source != Target)
+  write.table(edges_long, paste(HOME_LOCAL,"SPIEC-EASI_robustness/Edge_weigths_", name, "_rank", r, "_subnetwork_", i, "_all.txt", sep = ""), 
+              row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+
+  # annotate long format with meta data table
+  edges_long_annot <- left_join(edges_long, meta[,c("ID", "Name")], by=c("Source" = "ID"))
+  edges_long_annot <- left_join(edges_long_annot, meta[,c("ID", "Name")], by=c("Target" = "ID"))
+  colnames(edges_long_annot)[4:5] <- c("Source_name", "Target_name")
+  write.table(edges_long_annot, paste(HOME_LOCAL,"SPIEC-EASI_robustness/Edge_weigths_", name, "_rank", r, "_subnetwork_", i, "_all_annot.txt", sep = ""), 
+              row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+
+  
+  ## calculate hamming distance
+  
+  # extract shared nodes
+  ref_edges <- na.omit(ref_weights[,c(4:5,3)])
+  ref_edges2 <- ref_edges
+  ref_edges2[,1] <- pmin(ref_edges[,1], ref_edges[,2]); ref_edges2[,2] <- pmax(ref_edges[,1], ref_edges[,2]) # order alphabetically 
+  
+  sub_edges <- na.omit(edges_long_annot[,c(4:5,3)])
+  sub_edges2 <- sub_edges
+  sub_edges2[,1] <- pmin(sub_edges[,1], sub_edges[,2]); sub_edges2[,2] <- pmax(sub_edges[,1], sub_edges[,2]) # order alphabetically 
+  
+  edges <- left_join(sub_edges2, ref_edges2, by=c("Source_name" = "Source_name", "Target_name" = "Target_name"))
+  colnames(edges)[3:4] <- c("Weight_sub", "Weight_ref")
+  
+  # calculate relative Hamming
+  FP <- sum(edges$Weight_sub > 0 & edges$Weight_ref <= 0)
+  FN <- sum(edges$Weight_sub < 0 & edges$Weight_ref >= 0)
+
+  hamming_table[i,"subnetwork_number"] <- i
+  hamming_table[i,"hamming_dist"] <- (FP + FN) / nrow(edges)
+  
+}
+
+# save hamming summary table
+write.table(hamming_table, file = paste(HOME_LOCAL, "SPIEC-EASI_robustness/Hamming_dist_table_", name, "_rank", r, ".txt", sep = ""), 
+            col.names = TRUE, row.names = FALSE, sep = "\t", quote = FALSE) 
+
+```
+
+Visualize hamming distances
+
+```{r eval=FALSE}
+library(ggplot2)
+
+## read hamming dist tables
+
+file_names <- list.files(path = paste(HOME_LOCAL, "SPIEC-EASI_robustness/", sep = ""), 
+                         pattern = "^Hamming_dist_table_", full.names = TRUE)
+
+df_list <- lapply(file_names, function(file) {
+  df <- read.table(file, header = TRUE)
+  df$Set <- basename(file)
+  return(df)
+})
+
+hamming_dist <- do.call(rbind, df_list)
+hamming_dist$Set <- sub(x = hamming_dist$Set, pattern = "Hamming_dist_table_", replacement = "")
+hamming_dist$Set <- sub(x = hamming_dist$Set, pattern = ".txt", replacement = "")
+
+hamming_dist$Set <- factor(x = hamming_dist$Set, 
+                               labels = c("Order", "Family", "Genus"))
+
+## plot
+p <- ggplot(hamming_dist, aes(x = Set, y = hamming_dist)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(x = "", y = "Relative hamming distance")
+ggsave(paste(HOME_LOCAL, "SPIEC-EASI_robustness/Summary_plot_relative_hamming_dist_ITS_16S.pdf", sep = ""), plot = p, width = 3, height = 3)
+```
+

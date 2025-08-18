@@ -1,0 +1,150 @@
+---
+title: "PacBio dada2 workflow"
+output:
+  html_document:
+    theme: united
+    highlight: breezedark
+    toc: yes
+    toc_float: true
+    df_print: paged
+---
+
+
+# Run dada2 workflow : relaxed length filtering
+
+* Use following length cutoffs for different amplicons
+    + LSP48LSP49	CHA0	1501	bp,	min	0.7	1051,	max	1.3	1951
+    + LSP31LSP41	CHA0	2692	bp,	min	0.7	1884,	max	1.3	3500
+    + LSP36LSP46	CHA0	2922	bp,	min	0.7	2045,	max	1.3	3799
+    + LSP08LSP10	ZT1E4	1482	bp,	min	0.7	1037,	max	1.3	1927
+    + LSP15LSP16	ZT1E4	2447	bp,	min	0.7	1713,	max	1.3	3181
+    + LSP23LSP24	ZT1E4	2697	bp,	min	0.7	1888,	max	1.3	3506
+
+
+```{bash eval = FALSE}
+# Create conda environment to run analysis
+conda create -n R -c conda-forge r-base r-devtools r-essentials
+conda activate R
+```
+
+```{r eval=FALSE, message = FALSE, warning = FALSE}
+
+library(dada2)
+packageVersion("dada2")
+# use 1.30.0
+
+
+### Parameter sets for each amplicon
+
+amp_name <- "LSP08_LSP10" # Prefix for input and output files 
+minLength <- 1037 # Min length for filtering
+maxLength <- 1927 # Max length for filtering
+min_xlim_hist <- 1000 # Min length for hist sub plot
+max_xlim_hist <- 2000 # Max length for hist sub plot
+
+amp_name <- "LSP48_LSP49" # Prefix for input and output files
+minLength <- 1051 # Min length for filtering
+maxLength <- 1951 # Max length for filtering
+min_xlim_hist <- 1000 # Min length for hist sub plot
+max_xlim_hist <- 2000 # Max length for hist sub plot
+
+amp_name <- "LSP15_LSP16" # Prefix for input and output files
+minLength <- 1713 # Min length for filtering
+maxLength <- 3181 # Max length for filtering
+min_xlim_hist <- 1500 # Min length for hist sub plot
+max_xlim_hist <- 4000 # Max length for hist sub plot
+
+amp_name <- "LSP23_LSP24" # Prefix for input and output files
+minLength <- 1888 # Min length for filtering
+maxLength <- 3506 # Max length for filtering
+min_xlim_hist <- 1500 # Min length for hist sub plot
+max_xlim_hist <- 4000 # Max length for hist sub plot
+
+amp_name <- "LSP31_LSP41" # Prefix for input and output files
+minLength <- 1884 # Min length for filtering
+maxLength <- 3500 # Max length for filtering
+min_xlim_hist <- 1500 # Min length for hist sub plot
+max_xlim_hist <- 4000 # Max length for hist sub plot
+
+amp_name <- "LSP36_LSP46" # Prefix for input and output files
+minLength <- 2045 # Min length for filtering
+maxLength <- 3799 # Max length for filtering
+min_xlim_hist <- 1500 # Min length for hist sub plot
+max_xlim_hist <- 4000 # Max length for hist sub plot
+
+### Read in sequences
+path_in <- paste(HOME, sep = "/")
+path_out <- paste(HOME,"Out", sep = "/")
+seq <- list.files(path_in, pattern=amp_name, full.names=TRUE)
+
+### Inspect length distribution
+lens.fn <- lapply(seq, function(fn) nchar(dada2::getSequences(fn)))
+lens <- do.call(c, lens.fn)
+
+setwd(path_out)
+pdf(paste(amp_name,"_hist_lens.pdf", sep = ""))
+hist(lens, breaks= 500, main = "")
+dev.off()
+
+pdf(paste(amp_name,"_hist_lens_sub.pdf", sep = ""))
+hist(lens, breaks= 10000, xlim = c(min_xlim_hist,max_xlim_hist), main = "")
+dev.off()
+
+### Filter for length and quality
+filts <- file.path(path_out, "Amplicon_fastq_split_filtered", basename(seq))
+filtered <- dada2::filterAndTrim(seq, filts, minLen=minLength, maxLen=maxLength, maxEE=2, rm.phix=FALSE, qualityType = "FastqQuality", multithread=TRUE)
+# maxEE: reads with higher than maxEE "expected errors" will be discarded. Expected errors are calculated from the nominal definition of the quality score: EE = sum(10^(-Q/10))
+# maxEE filtering removes quite a bit of reads like this. For some analysis, this might be better set less stringent.
+saveRDS(filtered, file.path(path_out, paste(amp_name, "_filtered.rds", sep = "")))
+
+
+### Dereplicate
+filts_out <- list.files(paste(path_out, "Amplicon_fastq_split_filtered", sep = "/"), pattern=amp_name, full.names=TRUE)
+dereplicated <- dada2::derepFastq(filts_out, verbose=TRUE, qualityType="FastqQuality")
+saveRDS(dereplicated, file.path(path_out, paste(amp_name, "_dereplicated.rds", sep = "")))
+
+### Learn errors
+errors <- dada2::learnErrors(dereplicated, errorEstimationFunction=dada2:::PacBioErrfun, BAND_SIZE=32, multithread=TRUE)
+saveRDS(errors, file.path(path_out, paste(amp_name, "_errors.rds", sep = "")))
+
+plot_err <- dada2::plotErrors(errors)
+ggsave(plot = plot_err, filename = paste(amp_name, "_errors.pdf", sep = ""), path = file.path(path_out))
+
+### Denoise/ sample inference
+denoised <- dada2::dada(dereplicated, err=errors, BAND_SIZE=32, multithread=TRUE, pool = FALSE) # pool= FALSE removes singlteons per sample, pool = TRUE per dataset
+saveRDS(denoised, file.path(path_out, paste(amp_name, "_denoised_pool.rds", sep = "")))
+
+### Make sequence table
+seqTable <- dada2::makeSequenceTable(denoised)
+saveRDS(seqTable, file.path(path_out, paste(amp_name, "_seqTable_pool.rds", sep = "")))
+
+### Remove chimeras
+nochimera <- dada2::removeBimeraDenovo(seqTable, method="pooled", minFoldParentOverAbundance=3.5, multithread=TRUE, verbose=TRUE)
+saveRDS(nochimera, file.path(path_out, paste(amp_name, "_nochimera_pool.rds", sep = "")))
+
+
+### Save and export final sequence table
+write.table(nochimera, file = file.path(path_out, paste(amp_name, "_asv_table_pool.txt", sep = "")), quote = F, sep = "\t",  row.names = T, col.names = T)
+
+### Save ASV fasta
+fasta  <-  data.frame(sequence=colnames(nochimera))
+fasta$fasta <- paste(">S",row.names(fasta),"\n",fasta$sequence, sep = "")
+fasta_export <- fasta$fasta
+write.table(fasta_export, file = file.path(path_out, paste(amp_name, "_asv.fa", sep = "")) , quote = F, sep = "\t",  row.names = F, col.names = F)
+
+### Track reads through the pipeline
+getN <- function(x) sum(getUniques(x))
+track <- data.frame(cbind(filtered[filtered[,2]!=0,], sapply(denoised, getN),  rowSums(nochimera)))
+colnames(track) <- c("input", "filtered", "denoised",  "nonchim")
+
+# add proportions
+track$filt_inp = track$filtered / track$input
+track$den_inp = track$denoised / track$input
+track$chim_inp = track$nonchim / track$input
+
+track$den_filt = track$denoised / track$filtered
+track$chim_den = track$nonchim / track$denoised
+
+write.table(track, file = file.path(path_out, paste(amp_name, "_track_table_pool.txt", sep = "")), quote = F, sep = "\t",  row.names = T, col.names = T)
+
+```
