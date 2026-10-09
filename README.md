@@ -1,7 +1,7 @@
 # Citation
 If you use this resource, please cite:
 
-Stalder, L., Spescha, A., Maurhofer, M., Croll, D. (2026). High-resolution microbial network analysis identifies biocontrol assemblages in the wheat phyllosphere.
+Stalder, L., Spescha, A., Maurhofer, M., Croll, D. (2026). High-resolution microbial network analysis identifies biocontrol assemblages in the wheat phyllosphere. *Microbiome*.
 
 # Content
 This repository contains the code for the critical analysis steps of the study: ASV inference, phyloseq object creation, network inference with rank selection and robustness assessment, network statistics and the pathogen suppressor classification. Code that only produces descriptive figures is not included.
@@ -27,9 +27,11 @@ R 4.3.3, SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3, phyloseq 1.42.0, Matrix, 
 SpiecEasi 1.1.3 does not check whether its singular value decomposition succeeded (`softSVT2` in `ADMM.cpp`). On some LAPACK builds this causes the error "Mat::operator(): index out of bounds" for high ranks; replacing the call by a fallback to the standard SVD routine (`svd_econ(..., "std")` if the default fails) solves this without changing results when the default routine converges.
 
 # Summary
-- Plant-associated microbiota comprise diverse microbial species that coexist and interact, influencing host community structure and plant health. However, our understanding of these interactions in field conditions and at strain resolution remains limited. Laboratory findings often fail to translate due to insufficient interaction network knowledge. Here, we apply pangenome-informed, taxon-specific long-read amplicons to resolve a cross-kingdom co-occurrence network within the wheat phyllosphere microbiota.
-- We performed in-depth monitoring of strains from the hub genus Pseudomonas, revealing a high degree of strain-specificity of Pseudomonas interactions both within and across kingdoms.
-- Through negative co-occurrence modelling, we identified a candidate assembly of eleven biocontrol taxa negatively associated with eight fungal pathogen genera. Additional taxa with positive co-occurrence associations with these candidates were identified as putative persistence-enhancing stabilizer strains. We validated the strain-specific interactions of Pseudomonas with the major fungal pathogen Zymoseptoria tritici using co-inoculation experiments with genotypes retrieved from the same field. Consistent with our prediction, a P. poae isolate was the most antagonistic towards the pathogen in vitro and showed the strongest trend towards reduced disease in planta.
-- Our study demonstrates that high-resolution network inference can map microbial co-occurrence networks and predict strain-specific interaction patterns of biocontrol candidates that are persistently present under field conditions. Our approach supports the design of sustainable biocontrol assemblies.
+*Background*: Plant-associated microbiota comprise diverse microbial species that coexist and interact, influencing host community structure and plant health. However, our understanding of these interactions in field conditions and at strain resolution remains limited. Laboratory findings often fail to translate due to insufficient interaction network knowledge. Here, we apply pangenome-informed, taxon-specific long-read amplicons to resolve a cross-kingdom co-occurrence network within the wheat phyllosphere microbiota sampled at five timepoints across a growing season. 
 
-Keywords: Network inference, co-occurrence, amplicon sequencing, microbiota, microbiome, wheat, phyllosphere, Pseudomonas, Zymoseptoria tritici
+*Results*: We performed in-depth monitoring of strains from the hub genus *Pseudomonas*, revealing strain-specificic cross-kingdom associations of *Pseudomonas*. Through negative co-occurrence modelling, we identified an assembly of eleven biocontrol taxa with the potential to suppress eight fungal pathogens under field conditions. Additional taxa with positive co-occurrence associations with this assembly were identified as putative persistence-enhancing stabilizer strains. We tested predicted interactions of *Pseudomonas* with the major fungal pathogen *Zymoseptoria tritici* in co-inoculation experiments with *Pseudomonas* isolates from the same field. Consistent with a species-level prediction, one of four *P. poae* isolates inhibited the pathogen *in vitro* more strongly than all other field isolates on one *Z. tritici* strain and showed the strongest trend towards reduced disease in planta. 
+
+*Conclusions*: Our study demonstrates that high-resolution network inference can map microbial co-occurrence networks and identify candidate biocontrol assemblies at strain resolution across a growing season under field conditions. Our approach supports the design of sustainable biocontrol solutions.
+
+
+*Keywords*: Network inference, co-occurrence, amplicon sequencing, microbiota, microbiome, wheat, phyllosphere, *Pseudomonas*, *Zymoseptoria tritici*
