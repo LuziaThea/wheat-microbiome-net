@@ -6,25 +6,21 @@ Stalder, L., Spescha, A., Maurhofer, M., Croll, D. (2026). High-resolution micro
 # Content
 This repository contains the code for the critical analysis steps of the study: ASV inference, phyloseq object creation, network inference with rank selection and robustness assessment, network statistics and the pathogen suppressor classification. Code that only produces descriptive figures is not included.
 
+00 - Helper functions for the network analyses, sourced by the 03 scripts
+
 01 - Scripts and files for the dada2 pipeline to create ASV tables
 
 02 - Scripts and files for phyloseq object creation
 
-00 - Helper functions for the network analyses (sourced by the 03 scripts)
+03 - SpiecEasi network calculation with the latent graphical model (sparse and low-rank, SLR) for the bacterial-fungal, Pseudomonas-fungal and Pseudomonas-Z. tritici networks (one script each): rank selection by EBIC, robustness analysis (relative Hamming distance, Kurtz et al. 2019) and export of the selected edges with partial correlations. The model fits take several hours per rank. The Pseudomonas-fungal script also runs the sensitivity analysis without the P. congelans ASVs S44 and S45 (set `exclude_asvs`).
 
-03 - SpiecEasi network calculation with the latent graphical model (sparse and low-rank, SLR) for the bacterial-fungal, Pseudomonas-fungal and Pseudomonas-Z. tritici networks: rank selection by EBIC, robustness analysis (relative Hamming distance, Kurtz et al. 2019), export of the selected edges with partial correlations. The Pseudomonas-fungal script also runs the sensitivity analysis without the P. congelans ASVs S44 and S45 (set `exclude_asvs`).
+04 - Network statistics (edge counts, positive/negative and within/cross-kingdom shares, hub degrees) and modularity tests on the edge tables written by 03; with `--ranks`, the network-level sensitivity to the SLR rank on the saved models of all ranks
 
-04 - Network statistics (edge counts, positive/negative and within/cross-kingdom shares, hub degrees), modularity tests, and network-level sensitivity to the SLR rank
+05 - Pathogen suppressor, facilitator and stabilizer classification (Figure 5A/B) on the selected Pseudomonas-fungal model, and on the model without S44/S45. Uses `05_Meta_info_..._trophy.txt`, the phytopathogen annotation of all network taxa (Supplementary Table 8)
 
-05 - Pathogen suppressor, facilitator and stabilizer classification and Figure 5A/B. Uses `05_Meta_info_..._trophy.txt`, the phytopathogen annotation of all network taxa (Supplementary Table 8)
+06 - Extension of the λ path beyond the StARS-selected boundary for the selected Pseudomonas-Z. tritici model (Supplementary Table 19)
 
-09 - Extension of the λ path beyond the StARS-selected boundary for the Pseudomonas-Z. tritici network (Supplementary Table 19)
-
-## Order of execution
-1. `03_SPIEC_EASI_network_*.Rmd` (one per network; the model fits take several hours per rank)
-2. `04_network_statistics.R` on the edge tables written by 03 (and with `--ranks` on the saved models of all ranks)
-3. `05_pathogen_suppressor_assessment.R` on the selected Pseudomonas-fungal model (and on the model without S44/S45)
-4. `09` on the selected Pseudomonas-Z. tritici model (Supplementary Table 19)
+Scripts are numbered in the order in which they are run.
 
 ## Software
 R 4.3.3, SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3, phyloseq 1.42.0, Matrix, dplyr.
