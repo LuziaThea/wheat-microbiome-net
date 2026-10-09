@@ -1,0 +1,231 @@
+ID	Name	Species	Organism	Group	Subgroup	Phylum	Class	Order	Family	Group2	Group3	Group4	trophic_mode_FunGuild	trophic_mode_Catastrophy	phytopathogen_manual	comments_manual	trophy_manual	Group5
+1	g__Cladosporium	g__Cladosporium	ITS	F	NA	p__Ascomycota	c__Dothideomycetes	o__Capnodiales	f__Cladosporiaceae	f__Cladosporiaceae	o__Capnodiales	p__Ascomycota	Pathotroph;Pathotroph-Saprotroph;Pathotroph-Symbiotroph;Symbiotroph	NA	pathogen			pathogen
+2	g__Zymoseptoria	g__Zymoseptoria	ITS	F	NA	p__Ascomycota	c__Dothideomycetes	o__Mycosphaerellales	f__Mycosphaerellaceae	f__Mycosphaerellaceae	o__Mycosphaerellales	p__Ascomycota	NA	saprotroph	pathogen			pathogen
+3	g__Blumeria	g__Blumeria	ITS	F	NA	p__Ascomycota	c__Leotiomycetes	o__Erysiphales	f__Erysiphaceae	f__Erysiphaceae	o__Erysiphales	p__Ascomycota	Pathotroph	monomertroph	pathogen			pathogen
+4	g__Monographella	g__Monographella	ITS	F	NA	p__Ascomycota	c__Sordariomycetes	o__Xylariales	f__Hyponectriaceae	f__Hyponectriaceae	o__Xylariales	p__Ascomycota	NA	NA	pathogen			pathogen
+5	g__Neoascochyta	g__Neoascochyta	ITS	F	NA	p__Ascomycota	c__Dothideomycetes	o__Pleosporales	f__Didymellaceae	f__Didymellaceae	o__Pleosporales	p__Ascomycota	NA	NA	pathogen			pathogen
+6	g__Sporobolomyces	g__Sporobolomyces	ITS	F	NA	p__Basidiomycota	c__Microbotryomycetes	o__Sporidiobolales	f__Sporidiobolaceae	f__Sporidiobolaceae	o__Sporidiobolales	p__Basidiomycota	NA	NA	no			no
+7	g__Leveillula	g__Leveillula	ITS	F	NA	p__Ascomycota	c__Leotiomycetes	o__Erysiphales	f__Erysiphaceae	f__Erysiphaceae	o__Erysiphales	p__Ascomycota	NA	NA	pathogen			pathogen
+8	g__Vishniacozyma	g__Vishniacozyma	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Tremellales	f__Bulleribasidiaceae	f__Bulleribasidiaceae	o__Tremellales	p__Basidiomycota	NA	NA	no	biocontrol		no
+9	g__Itersonilia	g__Itersonilia	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Cystofilobasidiales	f__Mrakiaceae	f__Mrakiaceae	o__Cystofilobasidiales	p__Basidiomycota	NA	NA	pathogen			pathogen
+10	g__Dioszegia	g__Dioszegia	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Tremellales	f__Bulleribasidiaceae	f__Bulleribasidiaceae	o__Tremellales	p__Basidiomycota	NA	NA	no			no
+11	NA	NA	ITS	F	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+12	g__Helgardiomyces	g__Helgardiomyces	ITS	F	NA	p__Ascomycota	c__Leotiomycetes	o__Helotiales	f__Ploettnerulaceae	f__Ploettnerulaceae	o__Helotiales	p__Ascomycota	NA	NA	pathogen			pathogen
+13	g__Tausonia	g__Tausonia	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Cystofilobasidiales	f__Mrakiaceae	f__Mrakiaceae	o__Cystofilobasidiales	p__Basidiomycota	NA	NA	no			no
+14	g__Leucosporidium	g__Leucosporidium	ITS	F	NA	p__Basidiomycota	c__Microbotryomycetes	o__Leucosporidiales	f__Leucosporidiaceae	f__Leucosporidiaceae	o__Leucosporidiales	p__Basidiomycota	NA	monomertroph	no			no
+15	g__Fusariella	g__Fusariella	ITS	F	NA	p__Ascomycota	c__Sordariomycetes	o__Hypocreales	f__Hypocreales_fam_Incertae_sedis	f__Hypocreales_fam_Incertae_sedis	o__Hypocreales	p__Ascomycota	NA	NA	pathogen			pathogen
+16	g__Entyloma	g__Entyloma	ITS	F	NA	p__Basidiomycota	c__Exobasidiomycetes	o__Entylomatales	f__Entylomataceae	f__Entylomataceae	o__Entylomatales	p__Basidiomycota	NA	NA	pathogen			pathogen
+17	g__Cystofilobasidium	g__Cystofilobasidium	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Cystofilobasidiales	f__Cystofilobasidiaceae	f__Cystofilobasidiaceae	o__Cystofilobasidiales	p__Basidiomycota	NA	NA	no	biocontrol		no
+18	g__Typhula	g__Typhula	ITS	F	NA	p__Basidiomycota	c__Agaricomycetes	o__Agaricales	f__Typhulaceae	f__Typhulaceae	o__Agaricales	p__Basidiomycota	NA	NA	pathogen			pathogen
+19	g__Symmetrospora	g__Symmetrospora	ITS	F	NA	p__Basidiomycota	c__Cystobasidiomycetes	o__Cystobasidiomycetes_ord_Incertae_sedis	f__Symmetrosporaceae	f__Symmetrosporaceae	o__Cystobasidiomycetes_ord_Incertae_sedis	p__Basidiomycota	NA	NA	pathogen			pathogen
+20	g__Minimedusa	g__Minimedusa	ITS	F	NA	p__Basidiomycota	c__Agaricomycetes	o__Cantharellales	f__Hydnaceae	f__Hydnaceae	o__Cantharellales	p__Basidiomycota	NA	NA	no	biocontrol		no
+21	g__Ceratorhiza	g__Ceratorhiza	ITS	F	NA	p__Basidiomycota	c__Agaricomycetes	o__Cantharellales	f__Ceratobasidiaceae	f__Ceratobasidiaceae	o__Cantharellales	p__Basidiomycota	NA	NA	pathogen			pathogen
+22	g__Bipolaris	g__Bipolaris	ITS	F	NA	p__Ascomycota	c__Dothideomycetes	o__Pleosporales	f__Pleosporaceae	f__Pleosporaceae	o__Pleosporales	p__Ascomycota	Pathotroph	mesotroph;polymertroph	pathogen			pathogen
+23	g__Schizothecium	g__Schizothecium	ITS	F	NA	p__Ascomycota	c__Sordariomycetes	o__Sordariales	f__Lasiosphaeriaceae	f__Lasiosphaeriaceae	o__Sordariales	p__Ascomycota	NA	NA	no			no
+24	g__Filobasidium	g__Filobasidium	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Filobasidiales	f__Filobasidiaceae	f__Filobasidiaceae	o__Filobasidiales	p__Basidiomycota	NA	NA	no			no
+25	g__Protomyces	g__Protomyces	ITS	F	NA	p__Ascomycota	c__Taphrinomycetes	o__Taphrinales	f__Protomycetaceae	f__Protomycetaceae	o__Taphrinales	p__Ascomycota	Pathotroph	monomertroph	pathogen			pathogen
+26	g__Phaeosphaeria	g__Phaeosphaeria	ITS	F	NA	p__Ascomycota	c__Dothideomycetes	o__Pleosporales	f__Phaeosphaeriaceae	f__Phaeosphaeriaceae	o__Pleosporales	p__Ascomycota	Pathotroph	NA	pathogen			pathogen
+27	g__Fungi_gen_Incertae_sedis	g__Fungi_gen_Incertae_sedis	ITS	F	NA	p__Fungi_phy_Incertae_sedis	c__Fungi_cls_Incertae_sedis	o__Fungi_ord_Incertae_sedis	f__Fungi_fam_Incertae_sedis	f__Fungi_fam_Incertae_sedis	o__Fungi_ord_Incertae_sedis	p__Fungi_phy_Incertae_sedis	NA	NA	NA			NA
+28	g__Exobasidiomycetes_gen_Incertae_sedis	g__Exobasidiomycetes_gen_Incertae_sedis	ITS	F	NA	p__Basidiomycota	c__Exobasidiomycetes	o__Exobasidiomycetes_ord_Incertae_sedis	f__Exobasidiomycetes_fam_Incertae_sedis	f__Exobasidiomycetes_fam_Incertae_sedis	o__Exobasidiomycetes_ord_Incertae_sedis	p__Basidiomycota	NA	NA	pathogen			pathogen
+29	g__Bullera	g__Bullera	ITS	F	NA	p__Basidiomycota	c__Tremellomycetes	o__Tremellales	f__Bulleraceae	f__Bulleraceae	o__Tremellales	p__Basidiomycota	NA	NA	no			no
+30	g__Sporisorium	g__Sporisorium	ITS	F	NA	p__Basidiomycota	c__Ustilaginomycetes	o__Ustilaginales	f__Ustilaginaceae	f__Ustilaginaceae	o__Ustilaginales	p__Basidiomycota	NA	monomertroph	pathogen		biotroph	pathogen
+31	P_S155	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+32	P_S190	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+33	P_S44	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+34	P_S5	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+35	P_S205	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+36	P_S114	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+37	P_S31	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+38	P_S130	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+39	P_S3	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+40	P_S101	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+41	P_S175	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+42	P_S33	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+43	P_S127	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+44	P_S107	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+45	P_S125	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+46	P_S199	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+47	P_S198	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+48	P_S113	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+49	P_S106	Pseudomonas syringae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+50	P_S121	Pseudomonas syringae pv. pisi str. 	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+51	P_S112	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+52	P_S81	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+53	P_S79	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+54	P_S173	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+55	P_S156	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+56	P_S119	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+57	P_S39	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+58	P_S28	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+59	P_S201	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+60	P_S83	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+61	P_S126	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+62	P_S55	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+63	P_S124	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+64	P_S105	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+65	P_S145	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+66	P_S93	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+67	P_S54	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+68	P_S61	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+69	P_S56	Pseudomonas viridiflava	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+70	P_S64	Pseudomonas tremae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+71	P_S26	Pseudomonas tremae	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+72	P_S136	Pseudomonas coronafaciens pv. coronafaciens	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+73	P_S128	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+74	P_S146	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+75	P_S1	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+76	P_S200	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+77	P_S208	Pseudomonas zarinae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+78	P_S142	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+79	P_S180	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+80	P_S206	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+81	P_S80	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+82	P_S78	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+83	P_S134	Pseudomonas brassicacearum	PS	fluorescens	corrugata	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+84	P_S99	Pseudomonas chlororaphis	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+85	P_S194	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+86	P_S100	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+87	P_S29	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+88	P_S87	Pseudomonas chlororaphis subsp. aureofaciens	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+89	P_S77	Pseudomonas chlororaphis subsp. piscium	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+90	P_S7	Pseudomonas chlororaphis subsp. piscium	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+91	P_S117	Pseudomonas chlororaphis subsp. piscium	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+92	P_S91	Pseudomonas chlororaphis subsp. chlororaphis	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+93	P_S23	Pseudomonas sp.	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+94	P_S102	Pseudomonas protegens	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+95	P_S72	Pseudomonas protegens	PS	fluorescens	chlororaphis	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+96	P_S4	Pseudomonas corrugata	PS	fluorescens	corrugata	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+97	P_S168	Pseudomonas corrugata	PS	fluorescens	corrugata	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+98	P_S169	Pseudomonas corrugata	PS	fluorescens	corrugata	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+99	P_S12	Pseudomonas libanensis	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+100	P_S150	Pseudomonas libanensis	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+101	P_S53	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+102	P_S149	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+103	P_S108	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+104	P_S82	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+105	P_S43	Pseudomonas lurida	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+106	P_S57	Pseudomonas trivialis	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+107	P_S76	Pseudomonas tritici	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+108	P_S27	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+109	P_S62	Pseudomonas simiae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+110	P_S132	Pseudomonas orientalis	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+111	P_S68	Pseudomonas orientalis	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+112	P_S118	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+113	P_S183	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+114	P_S116	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+115	P_S182	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+116	P_S96	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+117	P_S185	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+118	P_S131	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+119	P_S178	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+120	P_S202	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+121	P_S109	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+122	P_S75	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+123	P_S10	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+124	P_S196	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+125	P_S171	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+126	P_S123	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+127	P_S35	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+128	P_S89	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+129	P_S152	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+130	P_S34	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+131	P_S49	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+132	P_S6	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+133	P_S52	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+134	P_S70	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+135	P_S84	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+136	P_S111	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+137	P_S15	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+138	P_S115	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+139	P_S38	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+140	P_S186	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+141	P_S47	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+142	P_S13	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+143	P_S65	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+144	P_S98	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+145	P_S140	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+146	P_S95	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+147	P_S36	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+148	P_S135	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+149	P_S63	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+150	P_S110	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+151	P_S92	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+152	P_S103	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+153	P_S25	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+154	P_S154	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+155	P_S88	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+156	P_S32	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+157	P_S144	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+158	P_S163	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+159	P_S189	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+160	P_S122	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+161	P_S17	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+162	P_S21	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+163	P_S94	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+164	P_S167	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+165	P_S177	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+166	P_S85	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+167	P_S181	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+168	P_S11	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+169	P_S51	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+170	P_S71	Pseudomonas poae	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+171	P_S73	Pseudomonas azotoformans	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+172	P_S164	Pseudomonas azotoformans	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+173	P_S153	Pseudomonas azotoformans	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+174	P_S48	Pseudomonas azotoformans	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+175	P_S2	Pseudomonas azotoformans	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+176	P_S143	Pseudomonas sivasensis	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+177	P_S166	Pseudomonas sivasensis	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+178	P_S41	Pseudomonas sivasensis	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+179	P_S86	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+180	P_S60	Pseudomonas fluorescens	PS	fluorescens	fluorescens	NA	NA	NA	NA	fluorescens	fluorescens	fluorescens	NA	NA	NA	NA	NA	fluorescens
+181	P_S66	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+182	P_S120	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+183	P_S59	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+184	P_S97	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+185	P_S104	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+186	P_S176	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+187	P_S148	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+188	P_S20	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+189	P_S138	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+190	P_S159	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+191	P_S133	Pseudomonas graminis	PS	lutea	NA	NA	NA	NA	NA	lutea	lutea	lutea	NA	NA	NA	NA	NA	lutea
+192	P_S151	Pseudomonas qingdaonensis	PS	putida	NA	NA	NA	NA	NA	putida	putida	putida	NA	NA	NA	NA	NA	putida
+193	P_S141	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+194	P_S158	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+195	P_S90	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+196	P_S161	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+197	P_S162	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+198	P_S14	Pseudomonas rhizosphaerae	PS	PS	NA	NA	NA	NA	NA	PS	PS	PS	NA	NA	NA	NA	NA	PS
+199	P_S69	Pseudomonas entomophila	PS	putida	NA	NA	NA	NA	NA	putida	putida	putida	NA	NA	NA	NA	NA	putida
+200	P_S139	Pseudomonas entomophila	PS	putida	NA	NA	NA	NA	NA	putida	putida	putida	NA	NA	NA	NA	NA	putida
+201	P_S24	Pseudomonas entomophila	PS	putida	NA	NA	NA	NA	NA	putida	putida	putida	NA	NA	NA	NA	NA	putida
+202	P_S147	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+203	P_S179	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+204	P_S37	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+205	P_S42	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+206	P_S188	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+207	P_S170	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+208	P_S9	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+209	P_S67	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+210	P_S18	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+211	P_S30	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+212	P_S22	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+213	P_S45	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+214	P_S165	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+215	P_S40	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+216	P_S46	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+217	P_S160	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+218	P_S50	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+219	P_S187	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+220	P_S8	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+221	P_S157	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+222	P_S174	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+223	P_S129	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+224	P_S58	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+225	P_S172	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+226	P_S184	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+227	P_S16	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+228	P_S137	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+229	P_S19	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
+230	P_S74	Pseudomonas congelans	PS	syringae	NA	NA	NA	NA	NA	syringae	syringae	syringae	NA	NA	NA	NA	NA	syringae
