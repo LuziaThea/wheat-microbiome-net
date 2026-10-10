@@ -4,7 +4,7 @@
 # selected rank on the full data along a longer path with the same log spacing, down to lambda.min.ratio = 1e-3,
 # and summarises the network at selected path positions (no StARS; one fit, ~15 min for 400 taxa).
 #
-# Usage: Rscript 09_lambda_path_extension.R <selected model .rds from 03> <Meta_info_... .txt from 03> <rank> <out.csv>
+# Usage: Rscript 06_lambda_path_extension.R <selected model .rds from 03> <Meta_info_... .txt from 03> <rank> <out.csv>
 #   The Meta_info table lists the taxa in model order (column Name; P_ = Pseudomonas, Z_ = Z. tritici).
 suppressMessages({library(SpiecEasi); library(Matrix)})
 a <- commandArgs(TRUE)
