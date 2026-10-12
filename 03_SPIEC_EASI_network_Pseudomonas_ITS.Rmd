@@ -13,9 +13,9 @@ output:
 
 - Calculate the network with all taxa for each SLR rank r (number of latent factors) and compute the EBIC.
 
-- Export the StARS-selected edges with partial correlations as edge weights (Supplementary Table 12; with exclude_asvs = c("S44", "S45"): Supplementary Table 16).
+- Export the StARS-selected edges with partial correlations as edge weights (Supplementary Table 12; with exclude_asvs = c("S44", "S45"): Supplementary Table 19).
 
-- Robustness: estimate networks on five random subsamples of 80% of the samples at the lambda selected for the full data, and calculate the relative Hamming distance (FP + FN) / P to the full-data network (Supplementary Table 14).
+- Robustness: estimate networks on five random subsamples of 80% of the samples at the lambda selected for the full data, and calculate the relative Hamming distance (FP + FN) / P to the full-data network (Supplementary Table 16).
 
 - The rank with the lowest EBIC among robust models (mean relative Hamming distance < 0.5) is used.
 
@@ -37,7 +37,7 @@ physeq1 <- readRDS(paste(HOME_LOCAL, "03_physeq_LSP36_LSP46_tipglom_0_top200.rds
 physeq2 <- readRDS(paste(HOME_LOCAL, "03_physeq_LSP08_LSP10_genus_merged.rds", sep = ""))     # Phyloseq object for ITS region, merged on genus level
 name <- "LSP3646_0_top200_LSP0810_genus_merged"
 
-# sensitivity analysis without the P. congelans ASVs (Supplementary Table 16): exclude_asvs <- c("S44", "S45")
+# sensitivity analysis without the P. congelans ASVs (Supplementary Table 19): exclude_asvs <- c("S44", "S45")
 exclude_asvs <- c()
 if(length(exclude_asvs) > 0){
   physeq1 <- prune_taxa(!(taxa_names(physeq1) %in% exclude_asvs), physeq1)
