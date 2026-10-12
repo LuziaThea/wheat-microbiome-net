@@ -288,7 +288,7 @@ for(amp in c("LSP15_LSP16")){
   # physeq <- transform_sample_counts(physeq, function (x) x / sum(x))
   
   # subset to get the most abundant ASVs only
-  physeq2 <- prune_taxa(x = physeq, taxa = names(taxa_sums(physeq)[1:100]))
+  physeq2 <- prune_taxa(x = physeq, taxa = names(taxa_sums(physeq)[1:200]))
   saveRDS(physeq2, file = paste(HOME_LOCAL, "physeq_", amp, "_top100.rds", sep = ""))
   
   # get tot abundance
