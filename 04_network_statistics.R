@@ -1,5 +1,5 @@
-# Network statistics of the selected networks (Figures 3A, 4A, 6A; Supplementary Table 15) and sensitivity of
-# the key results to the SLR rank (Supplementary Table 18, network-level columns).
+# Network statistics of the selected networks (Figures 3A, 4A, 6A; Supplementary Table 17) and sensitivity of
+# the key results to the SLR rank (Supplementary Table 15, network-level columns).
 # Run 03_*.Rmd first. Usage (from the folder with the 03 output):
 #   Rscript 04_network_statistics.R <Edge_weights_...txt> <Meta_info_...txt> <label>
 #   Rscript 04_network_statistics.R --ranks <SLR_model_..._rank> <Meta_info_...txt> <label>   (all saved ranks)
