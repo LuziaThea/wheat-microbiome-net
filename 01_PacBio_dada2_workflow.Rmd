@@ -31,7 +31,7 @@ conda activate R
 
 library(dada2)
 packageVersion("dada2")
-# use 1.30.0
+# use 1.30.0 (R 4.3.x)
 
 
 ### Parameter sets for each amplicon
