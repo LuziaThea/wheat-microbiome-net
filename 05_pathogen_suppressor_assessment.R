@@ -1,8 +1,8 @@
-# Pathogen suppressor assessment (Figure 5A, B; Supplementary Tables 8 and 16).
+# Pathogen suppressor assessment (Figure 5A, B; Supplementary Tables 8 and 19).
 # Classification and plots follow LS041_Biocontrol_assessment_PS_ITS_Domi.Rmd (D. Stalder); edge weights are the
 # partial correlations of the StARS-selected edges of the Pseudomonas-fungal network.
 # Usage: Rscript 05_pathogen_suppressor_assessment.R <SLR_model.rds> <Meta_info_...txt from 03> <05_Meta_info_..._trophy.txt (pathogen annotation, in the repository)> <out_prefix>
-#   main network: SLR_model_..._rank45.rds; Supplementary Table 16: SLR_model_..._noS44S45_rank40.rds (no plots needed)
+#   main network: SLR_model_..._rank45.rds; Supplementary Table 19: SLR_model_..._noS44S45_rank40.rds (no plots needed)
 #   The trophy table holds the manual phytopathogen annotation of the 30 fungal genera (column phytopathogen_manual).
 suppressMessages({library(Matrix); library(SpiecEasi); library(igraph)})
 args <- commandArgs(TRUE); OUT <- args[4]
