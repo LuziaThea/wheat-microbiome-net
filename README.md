@@ -23,7 +23,7 @@ This repository contains the code for the critical analysis steps of the study: 
 Scripts are numbered in the order in which they are run.
 
 ## Software
-R 4.3.3, SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3, phyloseq 1.42.0, Matrix, dplyr.
+R 4.2.2, SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3, phyloseq 1.42.0, Matrix, dplyr.
 SpiecEasi 1.1.3 does not check whether its singular value decomposition succeeded (`softSVT2` in `ADMM.cpp`). On some LAPACK builds this causes the error "Mat::operator(): index out of bounds" for high ranks; replacing the call by a fallback to the standard SVD routine (`svd_econ(..., "std")` if the default fails) solves this without changing results when the default routine converges.
 
 # Summary
