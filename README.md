@@ -18,7 +18,7 @@ This repository contains the code for the critical analysis steps of the study: 
 
 05 - Pathogen suppressor, facilitator and stabilizer classification (Figure 5A/B) on the selected Pseudomonas-fungal model, and on the model without S44/S45. Uses `05_Meta_info_..._trophy.txt`, the phytopathogen annotation of all network taxa (Supplementary Table 8)
 
-06 - Extension of the λ path beyond the StARS-selected boundary for the selected Pseudomonas-Z. tritici model (Supplementary Table 19)
+06 - Extension of the λ path beyond the StARS-selected boundary for the selected Pseudomonas-Z. tritici model (Supplementary Table 14)
 
 Scripts are numbered in the order in which they are run.
 
