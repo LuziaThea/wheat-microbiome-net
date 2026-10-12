@@ -119,7 +119,7 @@ seqTable <- dada2::makeSequenceTable(denoised)
 saveRDS(seqTable, file.path(path_out, paste(amp_name, "_seqTable_pool.rds", sep = "")))
 
 ### Remove chimeras
-nochimera <- dada2::removeBimeraDenovo(seqTable, method="pooled", minFoldParentOverAbundance=3.5, multithread=TRUE, verbose=TRUE)
+nochimera <- dada2::removeBimeraDenovo(seqTable, method="consensus", minFoldParentOverAbundance=3.5, multithread=TRUE, verbose=TRUE)
 saveRDS(nochimera, file.path(path_out, paste(amp_name, "_nochimera_pool.rds", sep = "")))
 
 
