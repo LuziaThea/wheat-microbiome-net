@@ -1,4 +1,4 @@
-# Extension of the lambda path beyond the StARS-selected boundary (Supplementary Table 19).
+# Extension of the lambda path beyond the StARS-selected boundary (Supplementary Table 14).
 # For the Pseudomonas-Z. tritici network, StARS edge instability stayed below 0.05 along the whole path
 # (nlambda = 50, lambda.min.ratio = 1e-2), so the smallest lambda was selected. This script refits the
 # selected rank on the full data along a longer path with the same log spacing, down to lambda.min.ratio = 1e-3,
