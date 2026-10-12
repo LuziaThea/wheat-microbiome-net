@@ -1,5 +1,5 @@
 # Helper functions used by the 03 scripts (source this file first).
-# Tested with R 4.3.3, SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3.
+# Tested with SpiecEasi 1.1.3, pulsar 0.3.11, igraph 2.0.3.
 
 library(Matrix)
 
