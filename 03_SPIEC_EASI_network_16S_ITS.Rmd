@@ -15,7 +15,7 @@ output:
 
 - Export the StARS-selected edges with partial correlations as edge weights (Supplementary Table 11).
 
-- Robustness: estimate networks on five random subsamples of 80% of the samples at the lambda selected for the full data, and calculate the relative Hamming distance (FP + FN) / P to the full-data network (Supplementary Table 18).
+- Robustness: estimate networks on five random subsamples of 80% of the samples at the lambda selected for the full data, and calculate the relative Hamming distance (FP + FN) / P to the full-data network (Supplementary Table 16).
 
 - The rank with the lowest EBIC among robust models (mean relative Hamming distance < 0.5) is used.
 
